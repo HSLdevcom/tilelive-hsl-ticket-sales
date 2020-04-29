@@ -9,6 +9,7 @@ const getTileIndex = (url, callback) => {
     url: url,
     maxAttempts: 20,
     retryDelay: 30000,
+    followRedirect: true,
     retryStrategy: (err, response) => (request.RetryStrategies.HTTPOrNetworkError(err, response) || (response && 202 === response.statusCode))
   }, function (err, res, body){
     if (err){
