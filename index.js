@@ -4,25 +4,28 @@ const vtPbf = require('vt-pbf');
 const request = require('requestretry');
 const zlib = require('zlib');
 
+
 const getTileIndex = (url, callback) => {
   request({
     url: url,
     maxAttempts: 20,
     retryDelay: 30000,
-    followRedirect: true,
+    followAllRedirects: true,
     retryStrategy: (err, response) => (request.RetryStrategies.HTTPOrNetworkError(err, response) || (response && 202 === response.statusCode))
   }, function (err, res, body){
     if (err){
       callback(err);
       return;
     }
+    console.log(res)
     callback(null, geojsonVt(JSON.parse(body), {maxZoom: 20})); //TODO: this should be configurable)
   })
 }
 
 class GeoJSONSource {
   constructor(uri, callback){
-    getTileIndex("https://data-hslhrt.opendata.arcgis.com/datasets/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
+    // getTileIndex("https://data-hslhrt.opendata.arcgis.com/datasets/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
+    getTileIndex("https://hslstoragekarttatuotanto.blob.core.windows.net/map-server-legacy-data/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
       if (err){
         callback(err);
         return;
