@@ -8,6 +8,7 @@ const zlib = require('zlib');
 const TICKET_SALES_SOURCE = "https://hslstoragekarttatuotanto.blob.core.windows.net/map-server-legacy-data/727c6618a0814f8ba21bb00c9cb34019_0.geojson"
 
 
+
 const getTileIndex = (url, callback) => {
   request({
     url: url,
@@ -21,10 +22,14 @@ const getTileIndex = (url, callback) => {
       return;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log("ticket sales points loaded from: ", TICKET_SALES_SOURCE)
 =======
     console.log(res)
 >>>>>>> 08ae0e6... Use temporary source dataset
+=======
+    console.log(res)
+>>>>>>> 08ae0e6fbb15a8ed227358592eed36e1ea3b4d27
     callback(null, geojsonVt(JSON.parse(body), {maxZoom: 20})); //TODO: this should be configurable)
   })
 }
@@ -32,11 +37,16 @@ const getTileIndex = (url, callback) => {
 class GeoJSONSource {
   constructor(uri, callback){
 <<<<<<< HEAD
+<<<<<<< HEAD
     getTileIndex(TICKET_SALES_SOURCE, (err, tileIndex) => {
 =======
     // getTileIndex("https://data-hslhrt.opendata.arcgis.com/datasets/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
     getTileIndex("https://hslstoragekarttatuotanto.blob.core.windows.net/map-server-legacy-data/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
 >>>>>>> 08ae0e6... Use temporary source dataset
+=======
+    // getTileIndex("https://data-hslhrt.opendata.arcgis.com/datasets/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
+    getTileIndex("https://hslstoragekarttatuotanto.blob.core.windows.net/map-server-legacy-data/727c6618a0814f8ba21bb00c9cb34019_0.geojson", (err, tileIndex) => {
+>>>>>>> 08ae0e6fbb15a8ed227358592eed36e1ea3b4d27
       if (err){
         callback(err);
         return;
