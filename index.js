@@ -6,8 +6,8 @@ const zlib = require('zlib');
 const fs = require('fs')
 const path = require("path");
 
-const TICKET_SALES_SOURCE = "https://opendata.arcgis.com/datasets/79fe2db71b254edda68c47d2629a962e_0.geojson"
-const TICKET_SALES_SOURCE_LOCAL_BACKUP = "79fe2db71b254edda68c47d2629a962e_0-2020-09-23.geojson"
+const TICKET_SALES_SOURCE = "https://data-hslhrt.opendata.arcgis.com/datasets/f9388fc8a8f848fda3bc584b607afe97_0.geojson"
+const TICKET_SALES_SOURCE_LOCAL_BACKUP = "f9388fc8a8f848fda3bc584b607afe97_0-2021-09-16.geojson"
 
 const getTileIndex = (url, callback) => {
   request({
